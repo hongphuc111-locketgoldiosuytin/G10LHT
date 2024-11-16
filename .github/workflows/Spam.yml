@@ -6,11 +6,11 @@ on:
       sdt:
         description: "Nhập số điện thoại"
         required: true
-        default: ""
+        default: "0972992492"  # Thay đổi giá trị mặc định nếu cần
       so_lan_spam:
         description: "Nhập số lần spam"
         required: true
-        default: ""
+        default: "1"  # Thay đổi giá trị mặc định nếu cần
 
 jobs:
   run-spam:
@@ -33,4 +33,5 @@ jobs:
 
       # Bước 4: Run script with inputs
       - name: Run spamv3.py
-        run: python spamv3.py "${{ github.event.inputs.sdt }}" "${{ github.event.inputs.so_lan_spam }}"
+        run: |
+          echo -e "${{ github.event.inputs.sdt }}\n${{ github.event.inputs.so_lan_spam }}" | python spamv3.py
