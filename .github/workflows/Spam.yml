@@ -6,11 +6,15 @@ on:
       sdt:
         description: "Nhập số điện thoại"
         required: true
-        default: "0972992492"  # Thay đổi giá trị mặc định nếu cần
+        default: ""
       so_lan_spam:
         description: "Nhập số lần spam"
         required: true
-        default: "1"  # Thay đổi giá trị mặc định nếu cần
+        default: ""
+      so_lan_chay_song_song:
+        description: "Nhập số tiến trình chạy song song"
+        required: true
+        default: "1"  # Mặc định chạy 1 tiến trình
 
 jobs:
   run-spam:
@@ -31,7 +35,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # Bước 4: Run script with inputs
-      - name: Run spamv3.py
-        run: |
-          echo -e "${{ github.event.inputs.sdt }}\n${{ github.event.inputs.so_lan_spam }}" | python spamv3.py
+      # Bước 4: Run multiprocessing.py with inputs
+      - name: Run multiprocessing.py
+        run: python multiprocessing.py "${{ github.event.inputs.sdt }}" "${{ github.event.inputs.so_lan_spam }}" "${{ github.event.inputs.so_lan_chay_song_song }}"
