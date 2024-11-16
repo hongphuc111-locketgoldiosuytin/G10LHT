@@ -1,0 +1,10 @@
+colorama
+pytz
+requests
+urllib3
+beautifulsoup4
+lxml
+fake-useragent
+schedule
+pyyaml
+logging
