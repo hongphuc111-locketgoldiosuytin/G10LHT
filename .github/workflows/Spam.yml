@@ -6,35 +6,28 @@ on:
       sdt:
         description: "Nhập số điện thoại"
         required: true
-        default: ""
       so_lan_spam:
         description: "Nhập số lần spam"
         required: true
-        default: ""
       so_lan_chay_song_song:
         description: "Nhập số tiến trình chạy song song"
         required: true
-        default: "1"  # Mặc định chạy 1 tiến trình
 
 jobs:
   run-spam:
     runs-on: ubuntu-latest
 
     steps:
-      # Bước 1: Checkout code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Bước 2: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.x
 
-      # Bước 3: Install dependencies
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # Bước 4: Run run_spam.py with inputs
       - name: Run run_spam.py
         run: python run_spam.py "${{ github.event.inputs.sdt }}" "${{ github.event.inputs.so_lan_spam }}" "${{ github.event.inputs.so_lan_chay_song_song }}"
