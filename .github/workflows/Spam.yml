@@ -35,6 +35,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # Bước 4: Run multiprocessing.py with inputs
-      - name: Run multiprocessing.py
-        run: python multiprocessing.py "${{ github.event.inputs.sdt }}" "${{ github.event.inputs.so_lan_spam }}" "${{ github.event.inputs.so_lan_chay_song_song }}"
+      # Bước 4: Run run_spam.py with inputs
+      - name: Run run_spam.py
+        run: python run_spam.py "${{ github.event.inputs.sdt }}" "${{ github.event.inputs.so_lan_spam }}" "${{ github.event.inputs.so_lan_chay_song_song }}"
