@@ -6,7 +6,7 @@ on:
       sdt:
         description: "Nhập số điện thoại"
         required: true
-        default: "0972992492"  # Thay đổi giá trị mặc định nếu cần
+        default: ""  # Thay đổi giá trị mặc định nếu cần
       so_lan_spam:
         description: "Nhập số lần spam"
         required: true
